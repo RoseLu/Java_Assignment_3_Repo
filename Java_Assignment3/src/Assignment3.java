@@ -174,7 +174,7 @@ public class Assignment3 {
     		if(curr==prev){	//Check if the current character is equal to the previous, the same in the first case
     			count += 1; //Increment the counter to 1, if it is equal		
     			if(i==s.length()-1){ //Meanwhile, also check if it is the end of the string
-    				System.out.println(str.append(count).append(curr));	//If so, print the count and the curr character
+    				System.out.println("The encoded string is " +str.append(count).append(curr));	//If so, print the count and the curr character
     			}
     			continue;
     		}
@@ -183,7 +183,7 @@ public class Assignment3 {
     			prev = curr; //Set the prev value to curr value
     			count=1; //Set the counter back to 1, so that it starts counting again for a new character
     			if(i==s.length()-1){ //if while checking, we find that it is the end of the string
-    				System.out.println(str.append(count).append(curr)); //print the count and curr value
+    				System.out.println("The encoded string is " +str.append(count).append(curr)); //print the count and curr value
     			}
     		}		
     	}
