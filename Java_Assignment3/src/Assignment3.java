@@ -241,7 +241,7 @@ public class Assignment3 {
 			output[i][r-1-j]=temp;
 			}
 		}
-		System.out.println(Arrays.deepToString(output));	//method to call the array
+		System.out.println(Arrays.deepToString(output)); //method to call the array
 	}
 
 
