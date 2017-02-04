@@ -58,6 +58,8 @@ public class Assignment3 {
      *  eg, input is 18, you should return{2,3,5,7,11,13,17}    */
 	public int[] generatePrimes(int n) {
 
+		//Tried to attempt this question even though you had mentioned in the email that its okay to skip this question
+		
 		System.out.print("{"); 
 		for(int i=2;i<=n;i++){					
 			if(isPrime(i)){	//Call to a method-isPrime to check if the number is prime or not
@@ -119,7 +121,7 @@ public class Assignment3 {
 	public static boolean isSubstring(String s1,String s2) {
 		if(s2==null ||s2.length()==0) return true;
 		if(s1==null ||s1.length()==0) return false;
-		if(s1.contains(s2)){
+		if(s1.contains(s2)){ //check if the string s1 i.e. combostring contains s2, if so, return true
 			return true;
 			}
 		return false;
@@ -166,7 +168,7 @@ public class Assignment3 {
     	char prev = s.charAt(0); //Set prev to the character at 0
     	char curr; //Declare the current variable
 
-    	for(int i=0;i<s.length();i++){			//loop through the array
+    	for(int i=0;i<s.length();i++){ //loop through the array
     		if(Character.isLetter(s.charAt(i))){ //confirming that the string to be encoded consists of alphabets alone
     		curr = s.charAt(i);	//Assign the current character to the i th value
     		if(curr==prev){	//Check if the current character is equal to the previous, the same in the first case
@@ -310,11 +312,11 @@ public class Assignment3 {
     	agn3.decoding("3a2b2c");
     	
     	//rotate matrix by 90 degree
-		int[][] mat = {{1,2,3},{4,5,6},{7,8,9}};
+		int[][] mat = {{1,2,3,4},{5,6,7,8}};
     	rotate(mat);
     	
     	//count the number of valid parentheses
-    	agn3.countValidParentheses("");
+    	agn3.countValidParentheses("(())()");
 	}
 	
 }
