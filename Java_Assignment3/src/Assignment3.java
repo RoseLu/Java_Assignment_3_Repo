@@ -11,12 +11,12 @@ import java.util.Arrays;
 
 
 public class Assignment3 {
-    /**
-     *  Given an array, reverse the elements within this array and print the result
-     *  eg, given{1,2,3,4}, print{4,3,2,1}
-     */
+	/**
+	 *  Given an array, reverse the elements within this array and print the result
+	 *  eg, given{1,2,3,4}, print{4,3,2,1}
+	 */
 	public void reverseArray(int[] nums) {
-		
+
 		int len =nums.length; //finding the length of the array
 		int[] temp = new int[len]; //initializing an array to store the reversed values
 		for( int j =0;j<len;j++){  //starting a loop to reverse the array
@@ -24,14 +24,14 @@ public class Assignment3 {
 		}     	
 		System.out.println("The array after reversing is " +Arrays.toString(temp));
 	}
-    	
 
-    /**
-     *  Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
-     *  Assume the integer do not contain any leading zero, except the number 0 itself.
-     *  The digits are stored such that the most significant digit is at the head of the array.
-     *  eg, given {1,2,9}, reutrn{1,3,0}.
-     */
+
+	/**
+	 *  Given a non-negative integer represented as a non-empty array of digits, plus one to the integer.
+	 *  Assume the integer do not contain any leading zero, except the number 0 itself.
+	 *  The digits are stored such that the most significant digit is at the head of the array.
+	 *  eg, given {1,2,9}, reutrn{1,3,0}.
+	 */
 	public int[] plusOne(int[] digits) {
 
 		char[] arrayOutput = new char[digits.length]; //Create an array to store the final output
@@ -41,10 +41,10 @@ public class Assignment3 {
 		}
 		int output = Integer.parseInt(str.toString()); //convert the string builder to a string and then convert it to an integer
 		if(output>0){ //Confirming that the number is positive
-		int finalOutput = output+1; //Once converted to an integer, 1 can be added to it
-		arrayOutput = String.valueOf(finalOutput).toCharArray(); //Convert the integer to a string and pass it to a character array
-		System.out.print("The array output after addition is ");
-		System.out.println(Arrays.toString(arrayOutput)); //Print the array output
+			int finalOutput = output+1; //Once converted to an integer, 1 can be added to it
+			arrayOutput = String.valueOf(finalOutput).toCharArray(); //Convert the integer to a string and pass it to a character array
+			System.out.print("The array output after addition is ");
+			System.out.println(Arrays.toString(arrayOutput)); //Print the array output
 		}
 		else
 		{
@@ -52,14 +52,14 @@ public class Assignment3 {
 		}
 		return digits;			
 	}
-	
-    /**
-     *  Write a program that takes an integer as input and returns all the primes between 1 and that integer(inclusive).
-     *  eg, input is 18, you should return{2,3,5,7,11,13,17}    */
+
+	/**
+	 *  Write a program that takes an integer as input and returns all the primes between 1 and that integer(inclusive).
+	 *  eg, input is 18, you should return{2,3,5,7,11,13,17}    */
 	public int[] generatePrimes(int n) {
 
 		//Tried to attempt this question even though you had mentioned in the email that its okay to skip this question
-		
+
 		System.out.print("{"); 
 		for(int i=2;i<=n;i++){					
 			if(isPrime(i)){	//Call to a method-isPrime to check if the number is prime or not
@@ -68,7 +68,7 @@ public class Assignment3 {
 					System.out.println();
 				} else	
 					System.out.print(+i +","); //else print the number and comma
-					continue;		
+				continue;		
 			}		
 			else
 				if(i==n){
@@ -93,13 +93,13 @@ public class Assignment3 {
 		}
 		return isPrime;							
 	}
-	
-    /**
-     *  Assume you have a method isSubstring which checks if one word is a substring of another.
-     *  Given two strings, s1 and s2, write a program to check if s2 is a rotation of s1, using only one call
-     *  to isSubstring
-     *  eg, "pineapple" is a rotation of "neapplepi"
-     */
+
+	/**
+	 *  Assume you have a method isSubstring which checks if one word is a substring of another.
+	 *  Given two strings, s1 and s2, write a program to check if s2 is a rotation of s1, using only one call
+	 *  to isSubstring
+	 *  eg, "pineapple" is a rotation of "neapplepi"
+	 */
 	public boolean isRotation(String s1, String s2) {
 		if(s1.length() !=s2.length()){ //If the 2 strings are not equal, there is no need to check rotation
 			System.out.println("The 2 strings are of different lengths");
@@ -117,139 +117,139 @@ public class Assignment3 {
 			}	
 		}
 	}
-    
+
 	public static boolean isSubstring(String s1,String s2) {
 		if(s2==null ||s2.length()==0) return true;
 		if(s1==null ||s1.length()==0) return false;
 		if(s1.contains(s2)){ //check if the string s1 i.e. combostring contains s2, if so, return true
 			return true;
-			}
+		}
 		return false;
-				
+
 	}
 
-    /**
-     *  Given two strings, write a method to decide if one is a permutation of the other
-     *  hint: the comparison is case sensitive and whitespace is significant
-     */
-    public boolean isPermutation(String s1, String s2) {
-            
-    	char[] a1 = s1.toCharArray(); //Create an array to store the first string
-    	char[] a2 = s2.toCharArray(); //Create an array to store the second string
+	/**
+	 *  Given two strings, write a method to decide if one is a permutation of the other
+	 *  hint: the comparison is case sensitive and whitespace is significant
+	 */
+	public boolean isPermutation(String s1, String s2) {
 
-    	if(s1.length()!=s2.length()){ //If the string lengths are not equal, no need to proceed
-    		System.out.println("The length of the 2 strings are not equal");
-    		return false;
-    	}
-    	else{
-    	Arrays.sort(a1); //Sort the first array
-    	Arrays.sort(a2); //Sort the second string in the array
-    	}
-    	if(Arrays.equals(a1, a2)){ //If the 2 sorted arrays have the same characters, then print
-    		System.out.println("The 2 strings are a permutation of the other");
-    		return true;
-    	}
-    	else 
-    		System.out.println("The 2 strings are not permutation of each other");
-    		return false;  		
-    }
+		char[] a1 = s1.toCharArray(); //Create an array to store the first string
+		char[] a2 = s2.toCharArray(); //Create an array to store the second string
 
-    /**
-     *  Write a program to implement encoding and decoding string. The rule is simple: encode successive
-     *  repeated characters by the repetition count and the character. For example, the input of encoding()
-     *  is "aaaabcccaa", you should return "4a1b3c2a". The decoding of "3e4f2e" returns "eeeffffee". Assume
-     *  the string to be encoded consists of letters of the alphabet, with no digits, and the string to be
-     *  decoded is a valid encoding.
-     */
-    public String encoding(String s) {
+		if(s1.length()!=s2.length()){ //If the string lengths are not equal, no need to proceed
+			System.out.println("The length of the 2 strings are not equal");
+			return false;
+		}
+		else{
+			Arrays.sort(a1); //Sort the first array
+			Arrays.sort(a2); //Sort the second string in the array
+		}
+		if(Arrays.equals(a1, a2)){ //If the 2 sorted arrays have the same characters, then print
+			System.out.println("The 2 strings are a permutation of the other");
+			return true;
+		}
+		else 
+			System.out.println("The 2 strings are not permutation of each other");
+		return false;  		
+	}
 
-    	StringBuilder str = new StringBuilder(); //Create a string builder to append the count with the character	
-    	int count=0; //Set counter to zero
-    	char prev = s.charAt(0); //Set prev to the character at 0
-    	char curr; //Declare the current variable
+	/**
+	 *  Write a program to implement encoding and decoding string. The rule is simple: encode successive
+	 *  repeated characters by the repetition count and the character. For example, the input of encoding()
+	 *  is "aaaabcccaa", you should return "4a1b3c2a". The decoding of "3e4f2e" returns "eeeffffee". Assume
+	 *  the string to be encoded consists of letters of the alphabet, with no digits, and the string to be
+	 *  decoded is a valid encoding.
+	 */
+	public String encoding(String s) {
 
-    	for(int i=0;i<s.length();i++){ //loop through the array
-    		if(Character.isLetter(s.charAt(i))){ //confirming that the string to be encoded consists of alphabets alone
-    		curr = s.charAt(i);	//Assign the current character to the i th value
-    		if(curr==prev){	//Check if the current character is equal to the previous, the same in the first case
-    			count += 1; //Increment the counter to 1, if it is equal		
-    			if(i==s.length()-1){ //Meanwhile, also check if it is the end of the string
-    				System.out.println("The encoded string is " +str.append(count).append(curr));	//If so, print the count and the curr character
-    			}
-    			continue;
-    		}
-    		else {
-    			str.append(count).append(prev);	//If curr !=prev, append count and prev
-    			prev = curr; //Set the prev value to curr value
-    			count=1; //Set the counter back to 1, so that it starts counting again for a new character
-    			if(i==s.length()-1){ //if while checking, we find that it is the end of the string
-    				System.out.println("The encoded string is " +str.append(count).append(curr)); //print the count and curr value
-    			}
-    		}		
-    	}
-    	else 
-    		System.out.println("The string to be decoded contains digits");
-    	}
+		StringBuilder str = new StringBuilder(); //Create a string builder to append the count with the character	
+		int count=0; //Set counter to zero
+		char prev = s.charAt(0); //Set prev to the character at 0
+		char curr; //Declare the current variable
+
+		for(int i=0;i<s.length();i++){ //loop through the array
+			if(Character.isLetter(s.charAt(i))){ //confirming that the string to be encoded consists of alphabets alone
+				curr = s.charAt(i);	//Assign the current character to the i th value
+				if(curr==prev){	//Check if the current character is equal to the previous, the same in the first case
+					count += 1; //Increment the counter to 1, if it is equal		
+					if(i==s.length()-1){ //Meanwhile, also check if it is the end of the string
+						System.out.println("The encoded string is " +str.append(count).append(curr));	//If so, print the count and the curr character
+					}
+					continue;
+				}
+				else {
+					str.append(count).append(prev);	//If curr !=prev, append count and prev
+					prev = curr; //Set the prev value to curr value
+					count=1; //Set the counter back to 1, so that it starts counting again for a new character
+					if(i==s.length()-1){ //if while checking, we find that it is the end of the string
+						System.out.println("The encoded string is " +str.append(count).append(curr)); //print the count and curr value
+					}
+				}		
+			}
+			else 
+				System.out.println("The string to be decoded contains digits");
+		}
 		return s;
-}
-    
-    public String decoding(String s) {
-    	int count = 0;
-    	StringBuilder str = new StringBuilder();
-    	for(int i=0;i<s.length();i++){ //Loop through the string of characters
-    		char c = s.charAt(i);
-    		if(Character.isDigit(c)){ //Loop to find out the digit
-    			count = count *10 +c - '0';
-    		}
-    		else 
-    			while(count>0){ //Keep appending the alphabet till the count value
-    				str.append(c);
-    				count--;
+	}
 
-    			}
-    	}
-    	System.out.println("The decoded string is "+str.toString());
-    	return str.toString();		
-    }
-		
-		
-		
-    //Extra Credit
-    /**
-     *Given an m x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise).
-     * For exmaple, given 1 2 3  , return 7 4 1
-     *                    4 5,6           8 5 2
-     *                    7,8,9           9 6 3
-     *tip: image could be a square or a rectangle.
-     */
+	public String decoding(String s) {
+		int count = 0;
+		StringBuilder str = new StringBuilder();
+		for(int i=0;i<s.length();i++){ //Loop through the string of characters
+			char c = s.charAt(i);
+			if(Character.isDigit(c)){ //Loop to find out the digit
+				count = count *10 +c - '0';
+			}
+			else 
+				while(count>0){ //Keep appending the alphabet till the count value
+					str.append(c);
+					count--;
+
+				}
+		}
+		System.out.println("The decoded string is "+str.toString());
+		return str.toString();		
+	}
+
+
+
+	//Extra Credit
+	/**
+	 *Given an m x n 2D matrix representing an image. Rotate the image by 90 degrees (clockwise).
+	 * For exmaple, given 1 2 3  , return 7 4 1
+	 *                    4 5,6           8 5 2
+	 *                    7,8,9           9 6 3
+	 *tip: image could be a square or a rectangle.
+	 */
 	public static void rotate(int[][] matrix) {
-		
+
 		int r = matrix.length; //Find the number of rows
 		int c = matrix[0].length; //Find the number of columns
 		int[][] output = new int[c][r]; //create an array with rows and columns interchanged
-		
+
 		for(int i =0;i<c;i++) //Loop through to populate in the new array matrix with 1st row becoming 1st column etc
 			for(int j=0;j<r;j++){
 				output[i][j]=matrix[j][i];	
 			}
-		
+
 		int n = r; //Let the number of rows in the new matrix be n
 		for(int j=0;j<n/2;j++){  //It is till n/2 because if it is a 3x4 matrix,it becomes 4x3 and we need to loop only till <4/2 columns
 			for(int i = 0;i<c;i++){ //Loop through to now swap the first and last columns
-			int temp = output[i][j];
-			output[i][j]=output[i][r-1-j];
-			output[i][r-1-j]=temp;
+				int temp = output[i][j];
+				output[i][j]=output[i][r-1-j];
+				output[i][r-1-j]=temp;
 			}
 		}
 		System.out.println(Arrays.deepToString(output)); //method to call the array
 	}
 
 
-     /**
-     *Given a string containing just the characters '(', ')', return the count of valid parentheses. If the
-     * intput is not valid, return -1. A valid parentheses is "()". For example, given "(())", return 2;
-     * given "(()))", return -1.
-     */
+	/**
+	 *Given a string containing just the characters '(', ')', return the count of valid parentheses. If the
+	 * intput is not valid, return -1. A valid parentheses is "()". For example, given "(())", return 2;
+	 * given "(()))", return -1.
+	 */
 	public int countValidParentheses(String s) {
 
 		int par1 = 0; //set first open parentheses count to 0
@@ -258,7 +258,7 @@ public class Assignment3 {
 
 		/*wanted to add a code to check if the string contains only parentheses but not sure how to achieve it without regex
 		and regex is not taught yet*/
-		
+
 		if(s.length()==0){ //To confirm that the string is not empty
 			System.out.println("The string is empty");
 		}
@@ -284,41 +284,41 @@ public class Assignment3 {
 		return count;
 	}
 
-     
-        
+
+
 	public static void main(String[] args) {	
 		Assignment3 agn3 = new Assignment3();
-		
+
 		//reversing an array
 		int[] numsArray = new int[]{1,2,3,4,5};		
 		System.out.println("The array before reversing is " +Arrays.toString(numsArray));
 		agn3.reverseArray(numsArray);
-		
+
 		//plusone to an array of numbers
 		agn3.plusOne(numsArray);
-		
+
 		//generating prime numbers
 		agn3.generatePrimes(19);
-		
+
 		//to check if a string is a rotation of another
 		agn3.isRotation("pineapple","applepine");
-		
+
 		//to check if a string is a permutation of the other
 		agn3.isPermutation("volcano "," canovol");
-		
+
 		//to encode and decode strings
 		String s="aaabbcc";
 		agn3.encoding(s);
-    	agn3.decoding("3a2b2c");
-    	
-    	//rotate matrix by 90 degree
+		agn3.decoding("3a2b2c");
+
+		//rotate matrix by 90 degree
 		int[][] mat = {{1,2,3,4},{5,6,7,8}};
-    	rotate(mat);
-    	
-    	//count the number of valid parentheses
-    	agn3.countValidParentheses("(())()");
+		rotate(mat);
+
+		//count the number of valid parentheses
+		agn3.countValidParentheses("(())()");
 	}
-	
+
 }
 
 /**
