@@ -34,13 +34,18 @@ public class Assignment3 {
 	 */
 	public int[] plusOne(int[] digits) {
 
+		if(digits==null || digits.length==0){ //Checking if the array is null
+			System.out.println("The array is empty"); 
+			return new int[0];
+		}
+		else if(digits!=null){
 		char[] arrayOutput = new char[digits.length]; //Create an array to store the final output
 		StringBuilder str = new StringBuilder(); //Create a string builder to append the values in the array
 		for(int num : digits){ //Loop through the digits array
 			str.append(num); //Start appending each value in the digits array
 		}
 		int output = Integer.parseInt(str.toString()); //convert the string builder to a string and then convert it to an integer
-		if(output>0){ //Confirming that the number is positive
+		if(output>=0){ //Confirming that the number is positive
 			int finalOutput = output+1; //Once converted to an integer, 1 can be added to it
 			arrayOutput = String.valueOf(finalOutput).toCharArray(); //Convert the integer to a string and pass it to a character array
 			System.out.print("The array output after addition is ");
@@ -50,6 +55,7 @@ public class Assignment3 {
 		{
 			System.out.println("The number is a negative number"); //If the number is negative, print this
 		}
+		}	
 		return digits;			
 	}
 
