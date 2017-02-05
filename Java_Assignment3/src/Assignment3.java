@@ -17,12 +17,17 @@ public class Assignment3 {
 	 */
 	public void reverseArray(int[] nums) {
 
-		int len =nums.length; //finding the length of the array
-		int[] temp = new int[len]; //initializing an array to store the reversed values
-		for( int j =0;j<len;j++){  //starting a loop to reverse the array
-			temp[j] = nums[len-1-j]; //in the first iteration:temp[0] will hold the value of temp[3] (j = 0 & len-1-j = 4-1-0 = 3) 				   	
-		}     	
-		System.out.println("The array after reversing is " +Arrays.toString(temp));
+		if(nums==null || nums.length==0){
+			System.out.println("The string is empty");
+		}
+		else if(nums.length!=0){
+			int len =nums.length; //finding the length of the array
+			int[] temp = new int[len]; //initializing an array to store the reversed values
+			for( int j =0;j<len;j++){  //starting a loop to reverse the array
+				temp[j] = nums[len-1-j]; //in the first iteration:temp[0] will hold the value of temp[3] (j = 0 & len-1-j = 4-1-0 = 3) 				   	
+			}     	
+			System.out.println("The array after reversing is " +Arrays.toString(temp));
+		}
 	}
 
 
@@ -39,22 +44,22 @@ public class Assignment3 {
 			return new int[0];
 		}
 		else if(digits!=null){
-		char[] arrayOutput = new char[digits.length]; //Create an array to store the final output
-		StringBuilder str = new StringBuilder(); //Create a string builder to append the values in the array
-		for(int num : digits){ //Loop through the digits array
-			str.append(num); //Start appending each value in the digits array
-		}
-		int output = Integer.parseInt(str.toString()); //convert the string builder to a string and then convert it to an integer
-		if(output>=0){ //Confirming that the number is positive
-			int finalOutput = output+1; //Once converted to an integer, 1 can be added to it
-			arrayOutput = String.valueOf(finalOutput).toCharArray(); //Convert the integer to a string and pass it to a character array
-			System.out.print("The array output after addition is ");
-			System.out.println(Arrays.toString(arrayOutput)); //Print the array output
-		}
-		else
-		{
-			System.out.println("The number is a negative number"); //If the number is negative, print this
-		}
+			char[] arrayOutput = new char[digits.length]; //Create an array to store the final output
+			StringBuilder str = new StringBuilder(); //Create a string builder to append the values in the array
+			for(int num : digits){ //Loop through the digits array
+				str.append(num); //Start appending each value in the digits array
+			}
+			int output = Integer.parseInt(str.toString()); //convert the string builder to a string and then convert it to an integer
+			if(output>=0){ //Confirming that the number is positive
+				int finalOutput = output+1; //Once converted to an integer, 1 can be added to it
+				arrayOutput = String.valueOf(finalOutput).toCharArray(); //Convert the integer to a string and pass it to a character array
+				System.out.print("The array output after addition is ");
+				System.out.println(Arrays.toString(arrayOutput)); //Print the array output
+			}
+			else
+			{
+				System.out.println("The number is a negative number"); //If the number is negative, print this
+			}
 		}	
 		return digits;			
 	}
@@ -65,24 +70,28 @@ public class Assignment3 {
 	public int[] generatePrimes(int n) {
 
 		//Tried to attempt this question even though you had mentioned in the email that its okay to skip this question
-
-		System.out.print("{"); 
-		for(int i=2;i<=n;i++){					
-			if(isPrime(i)){	//Call to a method-isPrime to check if the number is prime or not
-				if(i==n){
-					System.out.print(+i +"}"); //if it is the last digit, print the number and the closing bracket
-					System.out.println();
-				} else	
-					System.out.print(+i +","); //else print the number and comma
-				continue;		
-			}		
-			else
-				if(i==n){
-					System.out.print("}"); //if it is the last digit, print the number and the closing bracket
-					System.out.println();
-				}
+		if(n==0 ||n==1){
+			System.out.println("The numbers 0 and 1 are not prime");
+		}
+		else if(n>=2) {
+			System.out.print("{"); 
+			for(int i=2;i<=n;i++){					
+				if(isPrime(i)){	//Call to a method-isPrime to check if the number is prime or not
+					if(i==n){
+						System.out.print(+i +"}"); //if it is the last digit, print the number and the closing bracket
+						System.out.println();
+					} else	
+						System.out.print(+i +","); //else print the number and comma
+					continue;		
+				}		
 				else
-					continue; //if not prime continue with the next number till the number itself
+					if(i==n){
+						System.out.print("}"); //if it is the last digit, print the number and the closing bracket
+						System.out.println();
+					}
+					else
+						continue; //if not prime continue with the next number till the number itself
+			}
 		}
 		return null;	
 	}
@@ -142,7 +151,11 @@ public class Assignment3 {
 
 		char[] a1 = s1.toCharArray(); //Create an array to store the first string
 		char[] a2 = s2.toCharArray(); //Create an array to store the second string
-
+		
+		if(s1.length()==0 && s2.length()==0){
+			System.out.println("The strings are empty");
+		}
+		else if(s1.length()!=0 && s2.length()!=0){
 		if(s1.length()!=s2.length()){ //If the string lengths are not equal, no need to proceed
 			System.out.println("The length of the 2 strings are not equal");
 			return false;
@@ -157,6 +170,7 @@ public class Assignment3 {
 		}
 		else 
 			System.out.println("The 2 strings are not permutation of each other");
+		}
 		return false;  		
 	}
 
