@@ -1,3 +1,6 @@
+/*score: 9 + 1(extra credit)
+comments: good job! Keep going!
+*/
 import java.util.Arrays;
 
 /**
@@ -15,7 +18,7 @@ public class Assignment3 {
 	 *  Given an array, reverse the elements within this array and print the result
 	 *  eg, given{1,2,3,4}, print{4,3,2,1}
 	 */
-	public void reverseArray(int[] nums) {
+	public void reverseArray(int[] nums) {                        //correct
 
 		if(nums==null || nums.length==0){
 			System.out.println("The string is empty");
@@ -37,7 +40,7 @@ public class Assignment3 {
 	 *  The digits are stored such that the most significant digit is at the head of the array.
 	 *  eg, given {1,2,9}, reutrn{1,3,0}.
 	 */
-	public int[] plusOne(int[] digits) {
+	public int[] plusOne(int[] digits) {           //wrong: try the input of {6}, {9,9}...and see the result
 
 		if(digits==null || digits.length==0){ //Checking if the array is null
 			System.out.println("The array is empty"); 
@@ -67,7 +70,7 @@ public class Assignment3 {
 	/**
 	 *  Write a program that takes an integer as input and returns all the primes between 1 and that integer(inclusive).
 	 *  eg, input is 18, you should return{2,3,5,7,11,13,17}    */
-	public int[] generatePrimes(int n) {
+	public int[] generatePrimes(int n) {                     //correct, but for the last line"return null", you should return new int[0]
 
 		//Tried to attempt this question even though you had mentioned in the email that its okay to skip this question
 		if(n==0 ||n==1){
@@ -115,7 +118,7 @@ public class Assignment3 {
 	 *  to isSubstring
 	 *  eg, "pineapple" is a rotation of "neapplepi"
 	 */
-	public boolean isRotation(String s1, String s2) {
+	public boolean isRotation(String s1, String s2) {         //correct
 		if(s1.length() !=s2.length()){ //If the 2 strings are not equal, there is no need to check rotation
 			System.out.println("The 2 strings are of different lengths");
 			return false;
@@ -147,7 +150,7 @@ public class Assignment3 {
 	 *  Given two strings, write a method to decide if one is a permutation of the other
 	 *  hint: the comparison is case sensitive and whitespace is significant
 	 */
-	public boolean isPermutation(String s1, String s2) {
+	public boolean isPermutation(String s1, String s2) {            //correct
 
 		char[] a1 = s1.toCharArray(); //Create an array to store the first string
 		char[] a2 = s2.toCharArray(); //Create an array to store the second string
@@ -181,7 +184,7 @@ public class Assignment3 {
 	 *  the string to be encoded consists of letters of the alphabet, with no digits, and the string to be
 	 *  decoded is a valid encoding.
 	 */
-	public String encoding(String s) {
+	public String encoding(String s) {               //correct
 
 		StringBuilder str = new StringBuilder(); //Create a string builder to append the count with the character	
 		int count=0; //Set counter to zero
@@ -242,7 +245,7 @@ public class Assignment3 {
 	 *                    7,8,9           9 6 3
 	 *tip: image could be a square or a rectangle.
 	 */
-	public static void rotate(int[][] matrix) {
+	public static void rotate(int[][] matrix) {          //correct
 
 		int r = matrix.length; //Find the number of rows
 		int c = matrix[0].length; //Find the number of columns
@@ -270,7 +273,7 @@ public class Assignment3 {
 	 * intput is not valid, return -1. A valid parentheses is "()". For example, given "(())", return 2;
 	 * given "(()))", return -1.
 	 */
-	public int countValidParentheses(String s) {
+	public int countValidParentheses(String s) {                         //wrong: if s is ")(", you should return -1
 
 		int par1 = 0; //set first open parentheses count to 0
 		int par2 = 0; //set first close parentheses count to 0
